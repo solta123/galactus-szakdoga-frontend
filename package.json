@@ -1,6 +1,7 @@
 {
   "private": true,
   "sideEffects": false,
+  "homepage": "https://solta123.github.io/galactus-szakdoga-frontend",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
