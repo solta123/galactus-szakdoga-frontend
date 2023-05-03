@@ -10,7 +10,7 @@ import {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Galactus - Test shape visualizer",
   viewport: "width=device-width,initial-scale=1",
 });
 
