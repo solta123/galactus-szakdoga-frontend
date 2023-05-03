@@ -1,0 +1,1 @@
+import{b as o,j as t,p as n}from"/build/_shared/chunk-4FNY77SM.js";var e=o(n());function s(){let r=t();return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)("h1",{children:["Details page for ",r==null?void 0:r.key]}),(0,e.jsx)("div",{dangerouslySetInnerHTML:{__html:r==null?void 0:r.text}})]})}export{s as default};
