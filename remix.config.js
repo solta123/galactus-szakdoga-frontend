@@ -6,6 +6,9 @@ module.exports = {
       ? "./server.ts"
       : undefined,
   serverBuildPath: ".netlify/functions-internal/server.js",
+  serverDependenciesToBundle: [
+    "axios",
+  ],
   serverModuleFormat: "cjs",
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
