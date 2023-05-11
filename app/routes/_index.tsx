@@ -5,8 +5,6 @@ import { getCookie } from "~/utils/get-cookie";
 import { cookie } from "~/utils/cookie";
 
 export async function loader({ request }: LoaderArgs): Promise<object> {
-  console.log('index loader goes')
-  console.log(request.headers.get('Cookie'))
   if (!getCookie(request.headers.get('Cookie'), 'galactusCredentials')) {
       return redirect('/login', {
           statusText: 'You are not signed in, or your session has expired.'
@@ -47,8 +45,6 @@ export async function action() {
 
 export default function Index() {
   const data = useLoaderData();
-   
-  // login lambda TODO: allow-origin felvenni a github pages domain-t majdan, vagy *-ra állítani
 
   return (
     <main>
