@@ -17,7 +17,7 @@ export async function loader({ request }: LoaderArgs): Promise<object> {
         '',
         {
           withCredentials: true,
-          headers: { 'Cookie': request.headers.get("Cookie") || '' }
+          headers: { 'Cookie': request.headers.get("Cookie") }
         }
       );
 
