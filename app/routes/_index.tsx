@@ -48,30 +48,28 @@ export default function Index() {
 
   return (
     <main>
-      <h1>
-        Galactus — Test Shape Visualizer
-      </h1>
-      <div>
-        <Form method="post">
-          <button type="submit">Sign out</button>
-        </Form>
-      </div>
+      <nav className="navbar bg-primary">
+        <div className="container-fluid">
+          <a className="navbar-brand text-light" href="#">Galactus — Test Shape Visualizer</a>
+            <Form method="post" className="d-flex">
+              <button className="btn btn-ternary text-light" type="submit">Sign out</button>
+            </Form>
+        </div>
+      </nav>
       { 
         data.errors ?
-          <div>
+          <div className="alert alert-danger" role="alert">
             Error happened during server request: {data.errors}
           </div> :
           <>
-            <p>
-              My visualizations:
+            <p className="badge bg-secondary">
+              My visualizations
             </p>
                         
-            <ul>
+            <ul className="list-group">
               {
                 data?.results?.map((element: string) => (
-                  <li key={element}>
-                    <Link to={`/details/${element}`}>{element}</Link>
-                  </li>
+                  <Link key={element} className="list-group-item list-group-item-action" to={`/details/${element}`}>{element}</Link>  
                 ))
               }
             </ul>       

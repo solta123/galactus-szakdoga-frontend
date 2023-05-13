@@ -51,27 +51,38 @@ export default function Login() {
 
     return (
         <main>
-            <h1>
-                Galactus — Test Shape Visualizer
-            </h1>
-            <p>
-                Welcome to the page!
-            </p>
+            <nav className="navbar bg-primary">
+                <div className="container-fluid">
+                    <a className="navbar-brand text-light" href="#">Galactus — Test Shape Visualizer</a>
+                </div>
+            </nav>
+
+            <p className="badge bg-secondary">Welcome to the page!</p>
 
             <Form method="post">
-                <div>
-                    <label htmlFor="projectName">Project name:</label>
-                    <input type="text" id="projectName" name="projectName" required />
+                {data?.errorStatus && <div className="alert alert-danger" role="alert">
+                    {data.errorStatus}
+                </div>}
+                <div className="input-group">
+                    <div className="mb-3">
+                        <label htmlFor="projectName" className="form-label">Project name</label>
+                        <input type="text" className="form-control" id="projectName" name="projectName" required />
+                    </div>
+                </div>
+                <div className="input-group">
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input type="password" className="form-control" id="password" name="password" required />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" required />
+                    <input type="submit" value="Submit" className="btn btn-primary" disabled={transition.state === "submitting"} />
                 </div>
                 <div>
-                    <input type="submit" value="Submit" disabled={transition.state === "submitting"} />
-                    {transition.state === "submitting" && <span>Signing in...</span>}
+                    {transition.state === "submitting" && <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>}
                 </div>
-                { data?.errorStatus && <div style={{ color: 'red' }}>{data.errorStatus}</div> }
             </Form>
         </main>
     );

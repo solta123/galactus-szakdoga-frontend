@@ -3,12 +3,6 @@ var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty;
-var __esm = (fn, res) => function() {
-  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
-};
-var __commonJS = (cb, mod) => function() {
-  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-};
 var __export = (target, all3) => {
   for (var name in all3)
     __defProp(target, name, { get: all3[name], enumerable: !0 });
@@ -27,31 +21,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 )), __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: !0 }), mod);
 
-// server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_exports = {};
-__export(assets_manifest_exports, {
-  default: () => assets_manifest_default
-});
-var assets_manifest_default, init_assets_manifest = __esm({
-  "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "283abad3", entry: { module: "/build/entry.client-CRFK3QX2.js", imports: ["/build/_shared/chunk-ETBO3HVO.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-4MPGYTXF.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-YBRZRUDB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/details.$filename": { id: "routes/details.$filename", parentId: "root", path: "details/:filename", index: void 0, caseSensitive: void 0, module: "/build/routes/details.$filename-SYKCJEOQ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-BJWSTMJU.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-283ABAD3.js" };
-  }
-});
-
-// node_modules/@remix-run/css-bundle/dist/server.js
-var require_server = __commonJS({
-  "node_modules/@remix-run/css-bundle/dist/server.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: !0 });
-    var assetsManifest = (init_assets_manifest(), __toCommonJS(assets_manifest_exports));
-    function _interopDefaultLegacy(e) {
-      return e && typeof e == "object" && "default" in e ? e : { default: e };
-    }
-    var assetsManifest__default = /* @__PURE__ */ _interopDefaultLegacy(assetsManifest), cssBundleHref2 = assetsManifest__default.default.cssBundleHref;
-    exports.cssBundleHref = cssBundleHref2;
-  }
-});
-
 // <stdin>
 var stdin_exports = {};
 __export(stdin_exports, {
@@ -69,7 +38,7 @@ var entry_server_exports = {};
 __export(entry_server_exports, {
   default: () => handleRequest
 });
-var import_node_stream = require("node:stream"), import_node = require("@remix-run/node"), import_react = require("@remix-run/react"), import_isbot = __toESM(require("isbot")), import_server = require("react-dom/server"), import_jsx_runtime = require("react/jsx-runtime"), ABORT_DELAY = 5e3;
+var import_node_stream = require("node:stream"), import_node = require("@remix-run/node"), import_react = require("@remix-run/react"), import_isbot = __toESM(require("isbot")), import_server = require("react-dom/server"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), ABORT_DELAY = 5e3;
 function handleRequest(request, responseStatusCode, responseHeaders, remixContext) {
   return (0, import_isbot.default)(request.headers.get("user-agent")) ? handleBotRequest(
     request,
@@ -86,13 +55,21 @@ function handleRequest(request, responseStatusCode, responseHeaders, remixContex
 function handleBotRequest(request, responseStatusCode, responseHeaders, remixContext) {
   return new Promise((resolve, reject) => {
     let { pipe, abort } = (0, import_server.renderToPipeableStream)(
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
         import_react.RemixServer,
         {
           context: remixContext,
           url: request.url,
           abortDelay: ABORT_DELAY
-        }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/entry.server.tsx",
+          lineNumber: 46,
+          columnNumber: 7
+        },
+        this
       ),
       {
         onAllReady() {
@@ -118,13 +95,21 @@ function handleBotRequest(request, responseStatusCode, responseHeaders, remixCon
 function handleBrowserRequest(request, responseStatusCode, responseHeaders, remixContext) {
   return new Promise((resolve, reject) => {
     let { pipe, abort } = (0, import_server.renderToPipeableStream)(
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
         import_react.RemixServer,
         {
           context: remixContext,
           url: request.url,
           abortDelay: ABORT_DELAY
-        }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/entry.server.tsx",
+          lineNumber: 88,
+          columnNumber: 7
+        },
+        this
       ),
       {
         onShellReady() {
@@ -154,24 +139,72 @@ __export(root_exports, {
   default: () => App,
   links: () => links
 });
-var import_css_bundle = __toESM(require_server()), import_react2 = require("@remix-run/react"), import_jsx_runtime2 = require("react/jsx-runtime"), links = () => [
-  ...import_css_bundle.cssBundleHref ? [{ rel: "stylesheet", href: import_css_bundle.cssBundleHref }] : []
-];
+var import_react2 = require("@remix-run/react");
+
+// node_modules/bootstrap/dist/css/bootstrap.min.css
+var bootstrap_min_default = "/build/_assets/bootstrap.min-255VSQKL.css";
+
+// app/root.tsx
+var import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), links = () => [{ rel: "stylesheet", href: bootstrap_min_default }];
 function App() {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("html", { lang: "en", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("head", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("meta", { charSet: "utf-8" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Meta, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Links, {})
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("body", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Outlet, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.ScrollRestoration, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Scripts, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.LiveReload, {})
-    ] })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("html", { lang: "en", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("head", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("meta", { charSet: "utf-8" }, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 17,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 18,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Meta, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 19,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Links, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 20,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/root.tsx",
+      lineNumber: 16,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("body", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Outlet, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 23,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.ScrollRestoration, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 24,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Scripts, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 25,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.LiveReload, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 26,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/root.tsx",
+      lineNumber: 22,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/root.tsx",
+    lineNumber: 15,
+    columnNumber: 5
+  }, this);
 }
 
 // app/routes/details.$filename.tsx
@@ -2192,7 +2225,7 @@ var {
 } = axios_default;
 
 // app/routes/details.$filename.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime");
 async function loader({ request, params }) {
   var _a;
   if (!getCookie(request.headers.get("Cookie"), "galactusCredentials"))
@@ -2222,13 +2255,38 @@ async function loader({ request, params }) {
 }
 function DetailsRoute() {
   let data = (0, import_react3.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("h1", { children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_jsx_dev_runtime3.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "container-fluid", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("a", { className: "navbar-brand text-light", href: "#", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+      fileName: "app/routes/details.$filename.tsx",
+      lineNumber: 44,
+      columnNumber: 21
+    }, this) }, void 0, !1, {
+      fileName: "app/routes/details.$filename.tsx",
+      lineNumber: 43,
+      columnNumber: 17
+    }, this) }, void 0, !1, {
+      fileName: "app/routes/details.$filename.tsx",
+      lineNumber: 42,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("p", { className: "badge bg-secondary", children: [
       "Details page for ",
       data == null ? void 0 : data.key
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { dangerouslySetInnerHTML: { __html: data == null ? void 0 : data.text } })
-  ] });
+    ] }, void 0, !0, {
+      fileName: "app/routes/details.$filename.tsx",
+      lineNumber: 47,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { dangerouslySetInnerHTML: { __html: data == null ? void 0 : data.text } }, void 0, !1, {
+      fileName: "app/routes/details.$filename.tsx",
+      lineNumber: 48,
+      columnNumber: 13
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/details.$filename.tsx",
+    lineNumber: 41,
+    columnNumber: 9
+  }, this);
 }
 
 // app/routes/_index.tsx
@@ -2244,16 +2302,16 @@ var import_react4 = require("@remix-run/react"), import_node5 = require("@remix-
 var import_node4 = require("@remix-run/node"), cookie = (0, import_node4.createCookie)("galactusCredentials", {
   maxAge: 36e3,
   httpOnly: !0,
-  secure: !0,
-  sameSite: "none",
+  // secure: true,
+  // sameSite: 'none',
   path: "/"
 });
 
 // app/routes/_index.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime");
+var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime");
 async function loader2({ request }) {
   var _a;
-  if (console.log("index loader goes"), console.log(request.headers.get("Cookie")), !getCookie(request.headers.get("Cookie"), "galactusCredentials"))
+  if (!getCookie(request.headers.get("Cookie"), "galactusCredentials"))
     return (0, import_node5.redirect)("/login", {
       statusText: "You are not signed in, or your session has expired."
     });
@@ -2265,7 +2323,7 @@ async function loader2({ request }) {
         "",
         {
           withCredentials: !0,
-          headers: { Cookie: request.headers.get("Cookie") || "" }
+          headers: { Cookie: request.headers.get("Cookie") }
         }
       )).data
     };
@@ -2288,17 +2346,63 @@ async function action() {
 function Index() {
   var _a;
   let data = (0, import_react4.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { children: "Galactus \u2014 Test Shape Visualizer" }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_react4.Form, { method: "post", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "submit", children: "Sign out" }) }) }),
-    data.errors ? /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("main", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "container-fluid", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("a", { className: "navbar-brand text-light", href: "#", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 53,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react4.Form, { method: "post", className: "d-flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("button", { className: "btn btn-ternary text-light", type: "submit", children: "Sign out" }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 55,
+        columnNumber: 15
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 54,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 52,
+      columnNumber: 9
+    }, this) }, void 0, !1, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 51,
+      columnNumber: 7
+    }, this),
+    data.errors ? /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "alert alert-danger", role: "alert", children: [
       "Error happened during server request: ",
       data.errors
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "My visualizations:" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { children: (_a = data == null ? void 0 : data.results) == null ? void 0 : _a.map((element) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_react4.Link, { to: `/details/${element}`, children: element }) }, element)) })
-    ] })
-  ] });
+    ] }, void 0, !0, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 61,
+      columnNumber: 11
+    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_jsx_dev_runtime4.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("p", { className: "badge bg-secondary", children: "My visualizations" }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 65,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("ul", { className: "list-group", children: (_a = data == null ? void 0 : data.results) == null ? void 0 : _a.map((element) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react4.Link, { className: "list-group-item list-group-item-action", to: `/details/${element}`, children: element }, element, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 72,
+        columnNumber: 19
+      }, this)) }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 69,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 64,
+      columnNumber: 11
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/_index.tsx",
+    lineNumber: 50,
+    columnNumber: 5
+  }, this);
 }
 
 // app/routes/login.tsx
@@ -2308,7 +2412,7 @@ __export(login_exports, {
   default: () => Login
 });
 var import_node6 = require("@remix-run/node"), import_react5 = require("@remix-run/react");
-var import_jsx_runtime5 = require("react/jsx-runtime"), streamToString = async (stream4) => {
+var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), streamToString = async (stream4) => {
   let chunks = [];
   for await (let chunk of stream4)
     chunks.push(chunk);
@@ -2339,29 +2443,109 @@ async function action2({ request }) {
 }
 function Login() {
   let data = (0, import_react5.useActionData)(), transition = (0, import_react5.useNavigation)();
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { children: "Galactus \u2014 Test Shape Visualizer" }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "Welcome to the page!" }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_react5.Form, { method: "post", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { htmlFor: "projectName", children: "Project name:" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("input", { type: "text", id: "projectName", name: "projectName", required: !0 })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { htmlFor: "password", children: "Password:" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("input", { type: "password", id: "password", name: "password", required: !0 })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("input", { type: "submit", value: "Submit", disabled: transition.state === "submitting" }),
-        transition.state === "submitting" && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "Signing in..." })
-      ] }),
-      (data == null ? void 0 : data.errorStatus) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { style: { color: "red" }, children: data.errorStatus })
-    ] })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("main", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "container-fluid", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("a", { className: "navbar-brand text-light", href: "#", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+      fileName: "app/routes/login.tsx",
+      lineNumber: 56,
+      columnNumber: 21
+    }, this) }, void 0, !1, {
+      fileName: "app/routes/login.tsx",
+      lineNumber: 55,
+      columnNumber: 17
+    }, this) }, void 0, !1, {
+      fileName: "app/routes/login.tsx",
+      lineNumber: 54,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("p", { className: "badge bg-secondary", children: "Welcome to the page!" }, void 0, !1, {
+      fileName: "app/routes/login.tsx",
+      lineNumber: 60,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react5.Form, { method: "post", children: [
+      (data == null ? void 0 : data.errorStatus) && /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "alert alert-danger", role: "alert", children: data.errorStatus }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 63,
+        columnNumber: 39
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "input-group", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "mb-3", children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("label", { htmlFor: "projectName", className: "form-label", children: "Project name" }, void 0, !1, {
+          fileName: "app/routes/login.tsx",
+          lineNumber: 68,
+          columnNumber: 25
+        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("input", { type: "text", className: "form-control", id: "projectName", name: "projectName", required: !0 }, void 0, !1, {
+          fileName: "app/routes/login.tsx",
+          lineNumber: 69,
+          columnNumber: 25
+        }, this)
+      ] }, void 0, !0, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 67,
+        columnNumber: 21
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 66,
+        columnNumber: 17
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "input-group", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "mb-3", children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("label", { htmlFor: "password", className: "form-label", children: "Password" }, void 0, !1, {
+          fileName: "app/routes/login.tsx",
+          lineNumber: 74,
+          columnNumber: 25
+        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("input", { type: "password", className: "form-control", id: "password", name: "password", required: !0 }, void 0, !1, {
+          fileName: "app/routes/login.tsx",
+          lineNumber: 75,
+          columnNumber: 25
+        }, this)
+      ] }, void 0, !0, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 73,
+        columnNumber: 21
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 72,
+        columnNumber: 17
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("input", { type: "submit", value: "Submit", className: "btn btn-primary", disabled: transition.state === "submitting" }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 79,
+        columnNumber: 21
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 78,
+        columnNumber: 17
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { children: transition.state === "submitting" && /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "spinner-border", role: "status", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("span", { className: "visually-hidden", children: "Loading..." }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 83,
+        columnNumber: 25
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 82,
+        columnNumber: 59
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 81,
+        columnNumber: 17
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/routes/login.tsx",
+      lineNumber: 62,
+      columnNumber: 13
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/login.tsx",
+    lineNumber: 53,
+    columnNumber: 9
+  }, this);
 }
 
+// server-assets-manifest:@remix-run/dev/assets-manifest
+var assets_manifest_default = { version: "8e023463", entry: { module: "/build/entry.client-XYZGG6QL.js", imports: ["/build/_shared/chunk-ASXT2IN2.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-QXYIZQPI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-OUZZUZDY.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/details.$filename": { id: "routes/details.$filename", parentId: "root", path: "details/:filename", index: void 0, caseSensitive: void 0, module: "/build/routes/details.$filename-Z4CWXKMQ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-VBPBLH47.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-8E023463.js" };
+
 // server-entry-module:@remix-run/dev/server-build
-init_assets_manifest();
 var assetsBuildDirectory = "public/build", future = { unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
   root: {
     id: "root",
@@ -2405,17 +2589,4 @@ var assetsBuildDirectory = "public/build", future = { unstable_dev: !1, unstable
   publicPath,
   routes
 });
-/*! Bundled license information:
-
-@remix-run/css-bundle/dist/server.js:
-  (**
-   * @remix-run/css-bundle v1.16.0
-   *
-   * Copyright (c) Remix Software Inc.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.md file in the root directory of this source tree.
-   *
-   * @license MIT
-   *)
-*/
+//# sourceMappingURL=server.js.map

@@ -39,7 +39,12 @@ export default function DetailsRoute() {
 
     return (
         <>
-            <h1>Details page for {data?.key}</h1>
+            <nav className="navbar bg-primary">
+                <div className="container-fluid">
+                    <a className="navbar-brand text-light" href="#">Galactus — Test Shape Visualizer</a>
+                </div>
+            </nav>
+            <p className="badge bg-secondary">Details page for {data?.key}</p>
             <div dangerouslySetInnerHTML={{__html: data?.text}}></div>
         </>
     );
