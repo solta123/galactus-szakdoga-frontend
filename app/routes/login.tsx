@@ -53,7 +53,7 @@ export default function Login() {
         <main>
             <nav className="navbar bg-primary">
                 <div className="container-fluid">
-                    <a className="navbar-brand text-light" href="#">Galactus — Test Shape Visualizer</a>
+                    <span className="navbar-text text-light">Galactus — Test Shape Visualizer</span>
                 </div>
             </nav>
 

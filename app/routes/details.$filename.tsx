@@ -1,7 +1,8 @@
-import { useLoaderData } from "@remix-run/react";
+import { Form, useLoaderData } from "@remix-run/react";
 import { redirect, type LoaderArgs } from "@remix-run/node";
 import { getCookie } from "~/utils/get-cookie";
 import axios from "axios";
+import { cookie } from "~/utils/cookie";
 
 export async function loader({ request, params }: LoaderArgs): Promise<object> {
     if (!getCookie(request.headers.get('Cookie'), 'galactusCredentials')) {
@@ -34,6 +35,16 @@ export async function loader({ request, params }: LoaderArgs): Promise<object> {
     }
 }
 
+export async function action() {
+    return redirect('/login', {
+        headers: {
+            "Set-Cookie": await cookie.serialize('', {
+            expires: new Date(0),
+            }),
+        },
+    });
+}
+
 export default function DetailsRoute() {
     const data = useLoaderData();
 
@@ -41,7 +52,10 @@ export default function DetailsRoute() {
         <>
             <nav className="navbar bg-primary">
                 <div className="container-fluid">
-                    <a className="navbar-brand text-light" href="#">Galactus — Test Shape Visualizer</a>
+                    <span className="navbar-text text-light">Galactus — Test Shape Visualizer</span>
+                    <Form method="post" className="d-flex">
+                        <button className="btn btn-ternary text-light" type="submit">Sign out</button>
+                    </Form>
                 </div>
             </nav>
             <p className="badge bg-secondary">Details page for {data?.key}</p>

@@ -50,10 +50,10 @@ export default function Index() {
     <main>
       <nav className="navbar bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand text-light" href="#">Galactus — Test Shape Visualizer</a>
-            <Form method="post" className="d-flex">
-              <button className="btn btn-ternary text-light" type="submit">Sign out</button>
-            </Form>
+          <span className="navbar-text text-light">Galactus — Test Shape Visualizer</span>
+          <Form method="post" className="d-flex">
+            <button className="btn btn-ternary text-light" type="submit">Sign out</button>
+          </Form>
         </div>
       </nav>
       { 

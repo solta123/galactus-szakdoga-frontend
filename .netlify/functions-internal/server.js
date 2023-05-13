@@ -210,10 +210,11 @@ function App() {
 // app/routes/details.$filename.tsx
 var details_filename_exports = {};
 __export(details_filename_exports, {
+  action: () => action,
   default: () => DetailsRoute,
   loader: () => loader
 });
-var import_react3 = require("@remix-run/react"), import_node3 = require("@remix-run/node");
+var import_react3 = require("@remix-run/react"), import_node4 = require("@remix-run/node");
 
 // app/utils/get-cookie.ts
 var getCookie = (value, name) => {
@@ -2224,12 +2225,21 @@ var {
   mergeConfig: mergeConfig2
 } = axios_default;
 
+// app/utils/cookie.ts
+var import_node3 = require("@remix-run/node"), cookie = (0, import_node3.createCookie)("galactusCredentials", {
+  maxAge: 36e3,
+  httpOnly: !0,
+  // secure: true,
+  // sameSite: 'none',
+  path: "/"
+});
+
 // app/routes/details.$filename.tsx
 var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime");
 async function loader({ request, params }) {
   var _a;
   if (!getCookie(request.headers.get("Cookie"), "galactusCredentials"))
-    return (0, import_node3.redirect)("/login", {
+    return (0, import_node4.redirect)("/login", {
       statusText: "You are not signed in, or your session has expired."
     });
   try {
@@ -2253,20 +2263,40 @@ async function loader({ request, params }) {
     };
   }
 }
+async function action() {
+  return (0, import_node4.redirect)("/login", {
+    headers: {
+      "Set-Cookie": await cookie.serialize("", {
+        expires: /* @__PURE__ */ new Date(0)
+      })
+    }
+  });
+}
 function DetailsRoute() {
   let data = (0, import_react3.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_jsx_dev_runtime3.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "container-fluid", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("a", { className: "navbar-brand text-light", href: "#", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "container-fluid", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "navbar-text text-light", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+        fileName: "app/routes/details.$filename.tsx",
+        lineNumber: 55,
+        columnNumber: 21
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react3.Form, { method: "post", className: "d-flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("button", { className: "btn btn-ternary text-light", type: "submit", children: "Sign out" }, void 0, !1, {
+        fileName: "app/routes/details.$filename.tsx",
+        lineNumber: 57,
+        columnNumber: 25
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/details.$filename.tsx",
+        lineNumber: 56,
+        columnNumber: 21
+      }, this)
+    ] }, void 0, !0, {
       fileName: "app/routes/details.$filename.tsx",
-      lineNumber: 44,
-      columnNumber: 21
-    }, this) }, void 0, !1, {
-      fileName: "app/routes/details.$filename.tsx",
-      lineNumber: 43,
+      lineNumber: 54,
       columnNumber: 17
     }, this) }, void 0, !1, {
       fileName: "app/routes/details.$filename.tsx",
-      lineNumber: 42,
+      lineNumber: 53,
       columnNumber: 13
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("p", { className: "badge bg-secondary", children: [
@@ -2274,17 +2304,17 @@ function DetailsRoute() {
       data == null ? void 0 : data.key
     ] }, void 0, !0, {
       fileName: "app/routes/details.$filename.tsx",
-      lineNumber: 47,
+      lineNumber: 61,
       columnNumber: 13
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { dangerouslySetInnerHTML: { __html: data == null ? void 0 : data.text } }, void 0, !1, {
       fileName: "app/routes/details.$filename.tsx",
-      lineNumber: 48,
+      lineNumber: 62,
       columnNumber: 13
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/details.$filename.tsx",
-    lineNumber: 41,
+    lineNumber: 52,
     columnNumber: 9
   }, this);
 }
@@ -2292,22 +2322,11 @@ function DetailsRoute() {
 // app/routes/_index.tsx
 var index_exports = {};
 __export(index_exports, {
-  action: () => action,
+  action: () => action2,
   default: () => Index,
   loader: () => loader2
 });
 var import_react4 = require("@remix-run/react"), import_node5 = require("@remix-run/node");
-
-// app/utils/cookie.ts
-var import_node4 = require("@remix-run/node"), cookie = (0, import_node4.createCookie)("galactusCredentials", {
-  maxAge: 36e3,
-  httpOnly: !0,
-  // secure: true,
-  // sameSite: 'none',
-  path: "/"
-});
-
-// app/routes/_index.tsx
 var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime");
 async function loader2({ request }) {
   var _a;
@@ -2334,7 +2353,7 @@ async function loader2({ request }) {
     };
   }
 }
-async function action() {
+async function action2() {
   return (0, import_node5.redirect)("/login", {
     headers: {
       "Set-Cookie": await cookie.serialize("", {
@@ -2348,7 +2367,7 @@ function Index() {
   let data = (0, import_react4.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("main", { children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { className: "container-fluid", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("a", { className: "navbar-brand text-light", href: "#", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("span", { className: "navbar-text text-light", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 53,
         columnNumber: 11
@@ -2356,11 +2375,11 @@ function Index() {
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react4.Form, { method: "post", className: "d-flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("button", { className: "btn btn-ternary text-light", type: "submit", children: "Sign out" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 55,
-        columnNumber: 15
+        columnNumber: 13
       }, this) }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 54,
-        columnNumber: 13
+        columnNumber: 11
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/_index.tsx",
@@ -2408,7 +2427,7 @@ function Index() {
 // app/routes/login.tsx
 var login_exports = {};
 __export(login_exports, {
-  action: () => action2,
+  action: () => action3,
   default: () => Login
 });
 var import_node6 = require("@remix-run/node"), import_react5 = require("@remix-run/react");
@@ -2418,7 +2437,7 @@ var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), streamToString =
     chunks.push(chunk);
   return Buffer.concat(chunks).toString("utf-8");
 };
-async function action2({ request }) {
+async function action3({ request }) {
   var _a;
   let params = await streamToString(request.body), searchParams = new URLSearchParams(params), projectName = searchParams.get("projectName"), password = searchParams.get("password");
   try {
@@ -2444,7 +2463,7 @@ async function action2({ request }) {
 function Login() {
   let data = (0, import_react5.useActionData)(), transition = (0, import_react5.useNavigation)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("main", { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "container-fluid", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("a", { className: "navbar-brand text-light", href: "#", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("nav", { className: "navbar bg-primary", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("div", { className: "container-fluid", children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)("span", { className: "navbar-text text-light", children: "Galactus \u2014 Test Shape Visualizer" }, void 0, !1, {
       fileName: "app/routes/login.tsx",
       lineNumber: 56,
       columnNumber: 21
@@ -2543,7 +2562,7 @@ function Login() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "8e023463", entry: { module: "/build/entry.client-XYZGG6QL.js", imports: ["/build/_shared/chunk-ASXT2IN2.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-QXYIZQPI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-OUZZUZDY.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/details.$filename": { id: "routes/details.$filename", parentId: "root", path: "details/:filename", index: void 0, caseSensitive: void 0, module: "/build/routes/details.$filename-Z4CWXKMQ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-VBPBLH47.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-8E023463.js" };
+var assets_manifest_default = { version: "cc58201f", entry: { module: "/build/entry.client-XYZGG6QL.js", imports: ["/build/_shared/chunk-ASXT2IN2.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-QXYIZQPI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-HKUK24LT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/details.$filename": { id: "routes/details.$filename", parentId: "root", path: "details/:filename", index: void 0, caseSensitive: void 0, module: "/build/routes/details.$filename-FMRFKUV6.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-NRDOMNYK.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-CC58201F.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
