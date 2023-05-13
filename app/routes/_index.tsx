@@ -69,7 +69,11 @@ export default function Index() {
             <ul className="list-group">
               {
                 data?.results?.map((element: string) => (
-                  <Link key={element} className="list-group-item list-group-item-action" to={`/details/${element}`}>{element}</Link>  
+                  <Link key={element} 
+                    className="list-group-item list-group-item-action" 
+                    to={`/details/${element}`}>
+                    {element}
+                  </Link>  
                 ))
               }
             </ul>       
